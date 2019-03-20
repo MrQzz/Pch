@@ -1,0 +1,203 @@
+//
+//  PrefixHeader.pch
+//  NewBOBO
+//
+//  Created by 亓文超 on 2017/6/1.
+//  Copyright © 2017年 亓文超. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <UIKit/UIKit.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "ChangeData.h"
+
+
+
+#import "SetUserBehavior.h"//上传用户的行为信息
+
+#import "AFNet.h"
+#import "UIImageView+WebCache.h"//SDWebimage
+
+#import "StartData.h"//获取初始配置信息
+#import "MJRefresh.h"//刷新列表
+#import "MyalertView.h"//自定义提示框
+#import "ErrorTipView.h"
+#import "SVProgressHUD.h"
+#import "ChangeLableManager.h"//改变字体间距
+#import "JiaMi.h"
+#import "TopLineView.h"
+
+#import <UMAnalytics/MobClick.h>
+#import "UpyunManager.h"
+
+
+#ifdef DEBUG
+#define SLog(format, ...) printf("class: <%p %s:(%d) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
+#else
+#define SLog(format, ...)
+#endif
+
+
+
+
+#define  KWIDTH   [UIScreen mainScreen].bounds.size.width
+#define KHEIGHT (([[UIApplication sharedApplication] statusBarFrame].size.height == 44)? ([UIScreen mainScreen].bounds.size.height - 78.0):([UIScreen mainScreen].bounds.size.height))
+
+
+
+#define  ALLHEIGHT   [UIScreen mainScreen].bounds.size.height
+
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define INDEXOFX (([[UIApplication sharedApplication] statusBarFrame].size.height == 44)? (44.0):(0.0))
+#define DOWNFORX (([[UIApplication sharedApplication] statusBarFrame].size.height == 44)? (34.0):(0.0))
+#define TOPFORX (([[UIApplication sharedApplication] statusBarFrame].size.height == 44)? (88.0):(64.0))//导航栏的变化
+
+                       
+#define  M_width   [UIScreen mainScreen].bounds.size.width/375  //百分比大小
+#define  M_height    (([[UIApplication sharedApplication] statusBarFrame].size.height == 44)? (([UIScreen mainScreen].bounds.size.height - 78)/667):([UIScreen mainScreen].bounds.size.height/667)) //百分比大小
+
+
+
+
+
+#define FRAME(x,y,w,h) CGRectMake(x , y , w , h)//尺寸位置 大小
+
+
+
+
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a] //颜色 rgb
+
+//#define URLADDRESS @"http://192.168.124.83:3000/v1/"//上传的域名
+//#define NEWADDRESS @"http://192.168.124.83:7002/v2/"
+
+#define URLADDRESS @"http://t.service.yingtaoapp.cn:8777/v1/"//上传的域名
+#define NEWADDRESS @"http://t.service.yingtaoapp.cn/v2/"
+#define SOCKETURL @"http://message.bianquejia.cn:8777"//socket的域名
+//#define SOCKETURL @"http://192.168.124.83:8777"//socket的域名
+
+#define SECRET @"cherry-api_1519117802376_9154"
+
+
+
+#define ISYANSHIBAO @"isYanshi"
+
+
+//#define URLADDRESS @"http://beta.bianquejia.cn:8776/v1/"//上传的域名(测试)
+//#define SOCKETURL @"http://beta.bianquejia.cn:8777"//socket的域名(测试)
+
+
+#define VERSIONUPDATE [[[NSBundle mainBundle] infoDictionary]objectForKey:@"CFBundleShortVersionString"]//检查更新的版本
+
+#define Localized(key)  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"Localizable"]//获取语言
+
+//参数名字
+//1.0
+#define VERSION @"version" //初始数据的版本 如果不一样进行更换
+#define TIPSTIME   @"showConnectingTipsTiming" //提示语出现的时间
+#define SUPPORTDEVICE @"supportDevice"//所支持设备的数组
+#define REFRESHCOUNT  @"girlPlayersRefreshInterval"//  人数刷新的频率表
+#define SHUZITI @"ArialRoundedMTBold" //数字使用字体
+#define WENBENZITI @"PingFangSC-Medium"
+#define DEVICENAME @"deviceName" //手机设备的名称
+#define USEDDVICCES @"usedDevice"//用过的设备
+#define CURRENTPAGE @"currentPage"//当前所在的页面
+#define SUPERPROPERTY @"superpropety"//超级属性
+#define CONNECT @"connect"//链接态
+#define LANUCHIMAGE @"shanping"
+#define NOTCHECK @"notCheck"
+#define LINSHIXIUGAI "linShiXiuGai"
+//1.1
+#define ISLOGIN @"isLogin"
+#define DEFAULTICON @"default_avatar"//默认头像
+#define PHONENUMBER @"phoneNumber"
+#define UPYURL @"upyun_bucket"//又拍云地址
+#define UPYADMIN @"upyun_admin" //又拍云管理员账号
+#define UPYPASSWARD @"upyun_password"//又拍云密码
+#define UPYSAVEKEY @"upyun_savekey"//savekey
+#define ISLOCAL @"localState"//是否本地登录
+
+#define UPYUNVOICESAVEKEY @"/LiHui/Voices/{random32}{.suffix}"
+#define UPYUNVIDEOSAVEKEY @"/LiHui/Videos/{random32}{.suffix}"
+#define UPYUNIMAGESAVEKEY @"/LiHui/Images/{random32}{.suffix}"
+
+
+#define NICKNAME @"nickname"
+#define ICONURL @"iconurl"
+#define SEX @"sex"
+#define AGE @"age"
+
+//2.0 NEWXISHUZI  NEWCUSHUZI NEWSHUZI
+#define NEWSHUZI @"DIN-Medium"
+#define NEWXISHUZI @"DINPro-Regular"
+#define NEWCUSHUZI @"DIN-Bold"
+
+
+#define BIRTHDAY @"birthday"
+#define SHENGYU @"fertilityStatus"
+#define ISTRAINING @"isTraining"
+#define TOKENUSER @"userToken"
+#define DATASTIP @"showDatastip"
+#define LASTCONNECTID @"lastConnectId"
+
+//V2.2
+#define DATATYPEALL @"chooseAll"
+#define LOGINTYPE @"loginType"
+#import <AnalySDK/AnalySDK.h>
+
+//V2.3
+#define FONT_MEDIUM @"PingFangSC-Medium"
+#define FONT_SEMBOLD @"PingFangSC-Semibold"
+#define FONT_LIGHT @"PingFangSC-Light"
+#define FONT_Regular @"PingFangSC-Regular"
+#define FONT_Thin @"PingFangSC-Thin"
+
+
+//例会社区
+#define ISLIHUI @"isLihui"
+#define NOTICEROOM @"noticRoomCount"
+#define ZHUTIJINDU @"zhutiguangkanjindu"
+
+
+
+// 新的颜色们
+
+#define DANCES @[(id)RGBA(251, 0, 193, 1.0),(id)RGBA(251, 0, 193, 1.0),(id)RGBA(170, 0, 255, 1.0),(id)RGBA(246, 33, 71, 1.0),(id)RGBA(251, 157, 14, 1)]
+#define DANSECG @[(id)RGBA(251, 0, 193, 1.0).CGColor,(id)RGBA(251, 0, 193, 1.0).CGColor,(id)RGBA(170, 0, 255, 1.0).CGColor,(id)RGBA(246, 33, 71, 1.0).CGColor,(id)RGBA(251, 157, 14, 1).CGColor]
+
+#define JIANBIANS @[@[(id)RGBA(250, 90, 250, 1.0),(id)RGBA(250, 100, 200, 1.0)],@[(id)RGBA(250, 90, 250, 1.0),(id)RGBA(250, 100, 200, 1.0)],@[(id)RGBA(198, 84, 247, 1.0),(id)RGBA(226, 84, 247, 1.0)],@[(id)RGBA(255, 76, 106, 1.0),(id)RGBA(255, 106, 76, 1.0)],@[(id)RGBA(255, 201, 51, 1.0),(id)RGBA(255, 221, 51, 1.0)]]
+
+#define JIANBIANSCG @[@[(id)RGBA(250, 90, 250, 1.0).CGColor,(id)RGBA(250, 100, 200, 1.0).CGColor],@[(id)RGBA(250, 90, 250, 1.0).CGColor,(id)RGBA(250, 100, 200, 1.0).CGColor],@[(id)RGBA(196, 76, 255, 1.0).CGColor,(id)RGBA(255, 76, 255, 1.0).CGColor],@[(id)RGBA(255, 76, 106, 1.0).CGColor,(id)RGBA(255, 106, 76, 1.0).CGColor],@[(id)RGBA(255, 201, 51, 1.0).CGColor,(id)RGBA(255, 221, 51, 1.0).CGColor]]
+#import "ColorsMAnager.h"
+#import "CheckGotoUrl.h"
+#define Google_APP_ID @"401560303384-9iqqhbspcmoeh227n69bp99htj1dhc42.apps.googleusercontent.com"
+
+
+
+//V2.4.8
+
+#import "FileManager.h"
+#define  QIANGDINGYI  @property (strong,nonatomic)
+#define  RUODINGYI  @property (nonatomic)
+
+
+
+
+
+
+// 引入JPush功能所需头文件
+#import "JPUSHService.h"
+// iOS10注册APNs所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+// 如果需要使用idfa功能所需要引入的头文件（可选）
+#import <AdSupport/AdSupport.h>
+
+
+
+
+#endif /* PrefixHeader_pch */
